@@ -1,4 +1,6 @@
 # Reliable Job Runner
+
+Release 1.0 within its documented scope. See [release and operating notes](RELEASE.md).
 A small persistent background task queue in Python: separate API and worker, SQLite state, idempotent submission, bounded retries with exponential backoff, and recovery after a worker lease expires.
 
 ## Run: Python 3.11+
