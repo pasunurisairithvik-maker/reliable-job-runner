@@ -109,7 +109,7 @@ def execute(job):
 def finish(path,job,result=None,error=None,now=None):
     now=time.time() if now is None else now
     retry=error is not None and job['attempts']<MAX_ATTEMPTS
-    status='queued' if retry else ('failed' if error else 'succeeded')
+    status='queued' if retry else ('failed' if error is not None else 'succeeded')
     next_time=now+2**job['attempts'] if retry else now
     con=connect(path)
     try:

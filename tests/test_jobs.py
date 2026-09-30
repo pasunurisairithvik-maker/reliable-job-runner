@@ -21,6 +21,11 @@ class JobsTests(unittest.TestCase):
         for now in [0,2,6]:work_once(self.db,now=now,executor=fail)
         self.assertEqual(get_job(self.db,job['id'])['status'],'failed')
         self.assertFalse(work_once(self.db,now=100,executor=fail))
+    def test_empty_exception_still_fails(self):
+        job=self.add()
+        def fail(_):raise RuntimeError()
+        for now in [0,2,6]:work_once(self.db,now=now,executor=fail)
+        self.assertEqual(get_job(self.db,job['id'])['status'],'failed')
     def test_duplicate_and_conflict(self):
         a=self.add();b=self.add();self.assertEqual(a['id'],b['id'])
         with self.assertRaises(ValueError):enqueue(self.db,'word_count',{'text':'changed'},'one',now=0)
