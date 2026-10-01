@@ -36,4 +36,4 @@ Tests use controlled clocks for retry timing, simulate crashes and stale complet
 ## Limits
 Local educational demo; no authentication, rate limit, cancellation, priority, audit history, or arbitrary user-code execution. Payload limits protect individual requests but are not a full public-service resource policy. Money has unspecified currency and uses decimal arithmetic. Word count splits on whitespace, not linguistic tokenization.
 
-AI-assisted initial implementation. Read STUDENT_GUIDE.md and implement an independently understood improvement before describing personal contributions on a resume.
+See STUDENT_GUIDE.md for the implementation walkthrough and extension points.
